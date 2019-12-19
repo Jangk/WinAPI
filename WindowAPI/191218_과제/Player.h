@@ -7,7 +7,6 @@ private:
 	vector<Bullet*> m_Bullets;
 	const int m_iBullet_Max = 100;
 	int m_iBulletIndex = 0;
-	int m_iCount = 0;
 public:
 	// GameObject을(를) 통해 상속됨
 	virtual void Initialize() override;
