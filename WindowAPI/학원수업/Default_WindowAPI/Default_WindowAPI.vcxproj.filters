@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Default_WinAPI">
+      <UniqueIdentifier>{460c3b25-244a-4760-a8e6-11f764cc00c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="학원수업">
+      <UniqueIdentifier>{f821a4d6-ffa1-45a4-8420-141f8cb9ca32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="학원수업\191217">
+      <UniqueIdentifier>{720a728a-d496-4df8-a46f-6d582b0024a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Default_WinAPI\Default_WinAPI">
+      <UniqueIdentifier>{5ad4b8d2-49ae-4705-b2fa-6a50a7bbfa35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="학원수업\191218">
+      <UniqueIdentifier>{6a8adc8f-6720-470e-8f6a-625f7701299d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\1911217\Framework104C.h">
+      <Filter>학원수업\191217</Filter>
+    </ClInclude>
+    <ClInclude Include="..\1911217\Resource.h">
+      <Filter>학원수업\191217</Filter>
+    </ClInclude>
+    <ClInclude Include="..\1911217\stdafx.h">
+      <Filter>학원수업\191217</Filter>
+    </ClInclude>
+    <ClInclude Include="..\1911217\targetver.h">
+      <Filter>학원수업\191217</Filter>
+    </ClInclude>
+    <ClInclude Include="Default_WindowAPI.h">
+      <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Define.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Extern.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Framework104C.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Function.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\GameObject.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Maingame.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Monster.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Player.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Resource.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\Struct.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\targetver.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+    <ClInclude Include="..\191218\stdafx.h">
+      <Filter>학원수업\191218</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\1911217\191217.cpp">
+      <Filter>학원수업\191217</Filter>
+    </ClCompile>
+    <ClCompile Include="..\1911217\Framework104C.cpp">
+      <Filter>학원수업\191217</Filter>
+    </ClCompile>
+    <ClCompile Include="..\1911217\stdafx.cpp">
+      <Filter>학원수업\191217</Filter>
+    </ClCompile>
+    <ClCompile Include="Default_WindowAPI.cpp">
+      <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\191218\Framework104C.cpp">
+      <Filter>학원수업\191218</Filter>
+    </ClCompile>
+    <ClCompile Include="..\191218\GameObject.cpp">
+      <Filter>학원수업\191218</Filter>
+    </ClCompile>
+    <ClCompile Include="..\191218\Maingame.cpp">
+      <Filter>학원수업\191218</Filter>
+    </ClCompile>
+    <ClCompile Include="..\191218\Monster.cpp">
+      <Filter>학원수업\191218</Filter>
+    </ClCompile>
+    <ClCompile Include="..\191218\Player.cpp">
+      <Filter>학원수업\191218</Filter>
+    </ClCompile>
+    <ClCompile Include="..\191218\stdafx.cpp">
+      <Filter>학원수업\191218</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Default_WindowAPI.ico">
+      <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Default_WindowAPI.rc">
+      <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
