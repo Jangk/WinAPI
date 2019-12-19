@@ -12,7 +12,7 @@ GameManager* GameManager::GetInstance()
 	return m_Instance;
 }
 
-
+   
 void GameManager::Initialize()
 {
 	srand(unsigned int(time(NULL)));
