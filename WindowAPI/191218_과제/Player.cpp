@@ -22,9 +22,9 @@ void Player::Initialize()
 
 void Player::Update()
 {
-	KeyInput();
 	for (auto& bullet : m_Bullets)
 		bullet->Update();
+	KeyInput();
 }
 
 void Player::Render(HDC hdc)

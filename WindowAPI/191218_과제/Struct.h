@@ -1,7 +1,5 @@
 #pragma once
 #ifndef __STRUCT_H__
-
-
 typedef struct tagInfo
 {
 	float fCenterX, fCenterY;
