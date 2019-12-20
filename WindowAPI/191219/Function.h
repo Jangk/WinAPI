@@ -29,7 +29,8 @@ public:
 	{
 		for (auto& destObj : dest)
 			for (auto& srcObj : src)
-				ColRect(*destObj, *srcObj);
+				//ColRect(*destObj, *srcObj);
+				ColRectTeacherVersion(*destObj, *srcObj);
 	}
 	static void CollisionSphere(OBJECT_LIST& dest, OBJECT_LIST& src)
 	{
@@ -39,8 +40,31 @@ public:
 	}
 
 private:
+	static void ColRectTeacherVersion(GameObject& dest, GameObject& src)
+	{
+		// x축의 반지름 합과 거리를 구함.
+		// x축 반지름의 길이 보다 두 사각형의 원점의 거리보다 크면 겹침.
+		float fSumX = dest.GetInfo().fWidthHalf + src.GetInfo().fWidthHalf;
+		float fDisX = fabs(dest.GetInfo().fX - src.GetInfo().fX);
+
+		float fSumY = dest.GetInfo().fHeightHalf + src.GetInfo().fHeightHalf;
+		float fDisY = fabs(dest.GetInfo().fY - src.GetInfo().fY);
+
+		if (fSumX > fDisX&& fSumY > fDisY)
+		{	// 충돌이 확정된 순간. 겹치는 부분이 짧은 쪽으로 밀어냄.
+			fSumX -= fDisX;
+			fSumY -= fDisY;
+			if (fSumX > fSumY)
+				src.SetPos(src.GetInfo().fX, src.GetInfo().fX - fSumY);
+			else
+				src.SetPos(src.GetInfo().fX - fSumX, src.GetInfo().fX);
+		}
+	}
+
 	static void ColRect(GameObject& dest, GameObject& src)
 	{
+		if (&dest == &src)
+			return;
 		bool isX = false;
 		bool isY = false;
 		Direction dir = dest.GetDir();

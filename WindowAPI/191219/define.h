@@ -7,7 +7,7 @@
 #define FRAME_RATE 10			// 1 second = 1000 ms
 
 // MAX 
-#define MONSTER_MAX 1//10
+#define MONSTER_MAX 1
 #define BULLET_MAX 100
 
 

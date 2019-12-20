@@ -44,7 +44,7 @@ void GameManager::Update()
 }
 
 void GameManager::Render()
-{	// 화면 갱신용
+{	// 화면 갱신용1
 	Rectangle(m_HDC, -1, -1, SCREEN_X, SCREEN_Y);
 	for (int i = 0; i < GAMEOBJECT_END; ++i)
 	{
