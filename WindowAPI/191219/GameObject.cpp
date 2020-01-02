@@ -49,6 +49,19 @@ const RECT& GameObject::GetRect()
 	return m_Rect;
 }
 
+bool GameObject::IsEscapeMap()
+{
+	if (SCREEN_X < m_tInfo.fX)
+		return true;
+	if (0 > m_tInfo.fX)
+		return true;
+	if (SCREEN_Y < m_tInfo.fY)
+		return true;
+	if (0 > m_tInfo.fY)
+		return true;
+	return false;
+}
+
 GameObject::GameObject() : m_eDir(UP)
 {
 	m_eDir = UP;	// 디폴트 방향지정

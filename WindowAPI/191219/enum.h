@@ -14,7 +14,8 @@ enum GameObjectType
 {
 	PLAYER,
 	MONSTER,
-	BULLET,
+	PLAYER_BULLET,
+	MONSTER_BULLET,
 	GAMEOBJECT_END
 };
 
@@ -22,5 +23,12 @@ enum EventType
 {
 	DEAD,
 	NO_EVENT
+};
+
+enum MonsterType
+{
+	MONSTER1,
+	MONSTER2,
+	MONSTER3
 };
 #endif // !__ENUM_H__

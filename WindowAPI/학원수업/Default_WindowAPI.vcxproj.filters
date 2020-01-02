@@ -19,6 +19,9 @@
     <Filter Include="학원수업\191219">
       <UniqueIdentifier>{87a158d0-6564-4922-b5d8-3f6f40c94aa5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="학원수업\191223">
+      <UniqueIdentifier>{133494aa-ae27-4d54-9072-aba4851dbbf9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\1911217\Framework104C.h">
@@ -132,6 +135,57 @@
     <ClInclude Include="..\191219\Typedef.h">
       <Filter>학원수업\191219</Filter>
     </ClInclude>
+    <ClInclude Include="191223\Bullet.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\CollisionMgr.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Define.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Enum.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Extern.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Framework104C.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Function.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\GameObject.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Maingame.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Monster.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\ObjectFactory.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Player.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Resource.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\stdafx.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Struct.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\targetver.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
+    <ClInclude Include="191223\Typedef.h">
+      <Filter>학원수업\191223</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\1911217\191217.cpp">
@@ -188,6 +242,30 @@
     <ClCompile Include="..\191219\stdafx.cpp">
       <Filter>학원수업\191219</Filter>
     </ClCompile>
+    <ClCompile Include="191223\Bullet.cpp">
+      <Filter>학원수업\191223</Filter>
+    </ClCompile>
+    <ClCompile Include="191223\CollisionMgr.cpp">
+      <Filter>학원수업\191223</Filter>
+    </ClCompile>
+    <ClCompile Include="191223\Framework104C.cpp">
+      <Filter>학원수업\191223</Filter>
+    </ClCompile>
+    <ClCompile Include="191223\GameObject.cpp">
+      <Filter>학원수업\191223</Filter>
+    </ClCompile>
+    <ClCompile Include="191223\Maingame.cpp">
+      <Filter>학원수업\191223</Filter>
+    </ClCompile>
+    <ClCompile Include="191223\Monster.cpp">
+      <Filter>학원수업\191223</Filter>
+    </ClCompile>
+    <ClCompile Include="191223\Player.cpp">
+      <Filter>학원수업\191223</Filter>
+    </ClCompile>
+    <ClCompile Include="191223\stdafx.cpp">
+      <Filter>학원수업\191223</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Default_WindowAPI.ico">
@@ -196,10 +274,19 @@
     <Image Include="small.ico">
       <Filter>Default_WinAPI\Default_WinAPI</Filter>
     </Image>
+    <Image Include="191223\Framework104C.ico">
+      <Filter>학원수업\191223</Filter>
+    </Image>
+    <Image Include="191223\small.ico">
+      <Filter>학원수업\191223</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Default_WindowAPI.rc">
       <Filter>Default_WinAPI\Default_WinAPI</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="191223\Framework104C.rc">
+      <Filter>학원수업\191223</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>

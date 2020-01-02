@@ -17,7 +17,7 @@ void GameManager::Initialize()
 {
 	m_HDC = GetDC(g_hWnd);
 	m_ObjectList[PLAYER].push_back(GameObjectCreator<Player>::CreateGameObject(SCREEN_X * 0.5, SCREEN_Y * 0.5));
-	dynamic_cast<Player*>(m_ObjectList[PLAYER].front())->SetBulletList(&m_ObjectList[BULLET]);
+	dynamic_cast<Player*>(m_ObjectList[PLAYER].front())->SetBulletList(&m_ObjectList[PLAYER_BULLET]);
 	
 	
 	for (int i = 0; i < MONSTER_MAX; ++i)
@@ -39,8 +39,10 @@ void GameManager::Update()
 				++iter;
 		}
 	}
-	Collision::CollisionRect(m_ObjectList[PLAYER], m_ObjectList[MONSTER]);
-	Collision::CollisionSphere(m_ObjectList[MONSTER], m_ObjectList[BULLET]);
+	Collision::CollisionRect(m_ObjectList[MONSTER], m_ObjectList[PLAYER]);
+	//Collision::CollisionRect(m_ObjectList[PLAYER], m_ObjectList[MONSTER]);
+	Collision::CollisionSphere(m_ObjectList[MONSTER], m_ObjectList[PLAYER_BULLET]);
+	Collision::CollisionSphere(m_ObjectList[PLAYER], m_ObjectList[MONSTER_BULLET]);
 }
 
 void GameManager::Render()
@@ -53,7 +55,6 @@ void GameManager::Render()
 			++iter)
 			(*iter)->Render(m_HDC);
 	}
-	
 }
 
 void GameManager::Release()

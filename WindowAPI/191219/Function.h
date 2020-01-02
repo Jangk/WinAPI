@@ -1,6 +1,8 @@
 #pragma once
 #ifndef __FUNCTION_H__
 #include "GameObject.h"
+
+
 template<typename T>
 class GameObjectCreator
 {
@@ -29,8 +31,8 @@ public:
 	{
 		for (auto& destObj : dest)
 			for (auto& srcObj : src)
-				//ColRect(*destObj, *srcObj);
-				ColRectTeacherVersion(*destObj, *srcObj);
+				ColRect(*destObj, *srcObj);
+				//ColRectTeacherVersion(*destObj, *srcObj);
 	}
 	static void CollisionSphere(OBJECT_LIST& dest, OBJECT_LIST& src)
 	{
@@ -134,6 +136,7 @@ private:
 		}
 	}
 };
+
 
 
 #define __FUNCTION_H__

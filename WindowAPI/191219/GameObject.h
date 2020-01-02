@@ -15,6 +15,7 @@ public:
 	void UpdateRect();
 	void SetDead();
 	const RECT& GetRect();
+	bool IsEscapeMap();
 
 public:
 	GameObject();
