@@ -8,6 +8,7 @@ public :
 	void UpdateGunPos();
 	void SetShoot();
 	void CheckMapOut();
+	void SetShield(OBJECT_LIST* shield);
 
 public:
 	// GameObject을(를) 통해 상속됨
@@ -19,6 +20,7 @@ public:
 
 private:
 	GameObject* m_Bullets[100];
+	OBJECT_LIST* m_Shield;
 	POINT m_GunPos;
 	float m_fGunLength;
 	int m_iBulletIndex;

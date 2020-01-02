@@ -16,7 +16,7 @@ void Bullet::Initialize()
 	m_tInfo.fHeight = 30;
 
 	// ±‚≈∏
-	m_fSpeed		= 200;
+	m_fSpeed		= 400;
 	m_fAngle		= 0;
 	m_bIsShoot		= false;
 }

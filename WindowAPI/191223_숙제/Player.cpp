@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "Shield.h"
 
 void Player::InputKey()
 {
@@ -18,19 +19,22 @@ void Player::InputKey()
 	}
 	
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-		m_fAngle += 90 * g_fDeltaTime;
+		m_fAngle += 180 * g_fDeltaTime;
 	else if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-		m_fAngle -= 90 * g_fDeltaTime;
+		m_fAngle -= 180 * g_fDeltaTime;
 
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000 )
 	{
 		m_iBulletCount++;
-		if (m_iBulletCount > 1000)
+		if (m_iBulletCount > 100)
 		{
 			SetShoot();
 			m_iBulletCount = 0;
 		}
 	}
+
+	if (GetAsyncKeyState('A') & 0x8000)
+		dynamic_cast<Shield*>(m_Shield->front())->SetActive();
 	UpdateGunPos();
 }
 
@@ -61,6 +65,11 @@ void Player::CheckMapOut()
 		m_tInfo.fY = -m_tInfo.fHeight / 2;
 }
 
+void Player::SetShield(OBJECT_LIST* shield)
+{
+	m_Shield = shield;
+}
+
 void Player::Initialize()
 {
 	// 부모 
@@ -72,7 +81,7 @@ void Player::Initialize()
 	// Player 변수
 	m_fAngle		= 0;
 	m_fGunLength	= 100.0f;
-	m_fSpeed		= 100.0f;
+	m_fSpeed		= 200.0f;
 	m_GunPos.x		= 0;
 	m_GunPos.y		= 0;
 
@@ -98,12 +107,12 @@ void Player::Render(HDC hdc)
 {
 	GameObject::UpdateRect();
 
-	// 텍스트
-	TCHAR szBuf[64] = L"";
-	swprintf_s(szBuf, L"X = %f, Y = %f", m_tInfo.fX, m_tInfo.fY);
-	//DrawText: 지정한 사각형 영역 안에 텍스트 출력
-	RECT rc = { 100, 100, 200, 200 };
-	DrawText(hdc, szBuf, lstrlen(szBuf), &rc, DT_NOCLIP);
+	//// 텍스트
+	//TCHAR szBuf[64] = L"";
+	//swprintf_s(szBuf, L"X = %f, Y = %f", m_tInfo.fX, m_tInfo.fY);
+	////DrawText: 지정한 사각형 영역 안에 텍스트 출력
+	//RECT rc = { 100, 100, 200, 200 };
+	//DrawText(hdc, szBuf, lstrlen(szBuf), &rc, DT_NOCLIP);
 	
 	// 총알
 	for (auto iter : m_Bullets)

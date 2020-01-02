@@ -22,6 +22,9 @@
     <Filter Include="01.GameObject\Bullet">
       <UniqueIdentifier>{18c32d89-0c79-46e8-b4a4-69a16b01bec7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.GameObject\Shield">
+      <UniqueIdentifier>{293130be-c6fe-4269-83fd-f788ece9f585}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="191223_숙제.h">
@@ -67,6 +70,9 @@
     <ClInclude Include="Bullet.h">
       <Filter>01.GameObject\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>01.GameObject\Shield</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
@@ -86,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>01.GameObject\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>01.GameObject\Shield</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
