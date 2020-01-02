@@ -6,20 +6,21 @@ void Player::InputKey()
 {
 	if (GetAsyncKeyState(VK_UP) & 0x8000)
 	{	// m_fAngle은 degree지만 삼각함수(라디안값) 이여야한다.
-		m_tInfo.fX += m_fSpeed * cosf(m_fAngle) * g_fDeltaTime;
-		m_tInfo.fY += m_fSpeed * sinf(m_fAngle) * g_fDeltaTime;
+		// y축은 데카르트 좌표와 winAPi 좌표가 반대여서 -
+		// 식) 라디안 = 디그리 * PI / 180
+		m_tInfo.fX += m_fSpeed * cosf(m_fAngle * PI / 180)* g_fDeltaTime;
+		m_tInfo.fY -= m_fSpeed * sinf(m_fAngle * PI / 180)* g_fDeltaTime;
 	}
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
 	{
-		m_tInfo.fX -= m_fSpeed * cosf(m_fAngle) * g_fDeltaTime;
-		m_tInfo.fY -= m_fSpeed * sinf(m_fAngle) * g_fDeltaTime;
+		m_tInfo.fX -= m_fSpeed * cosf(m_fAngle * PI / 180) * g_fDeltaTime;
+		m_tInfo.fY += m_fSpeed * sinf(m_fAngle * PI / 180) * g_fDeltaTime;
 	}
 	
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-		m_fAngle -= PI * g_fDeltaTime;				// 델타 타임 * 타임 스케일  <---- 2개 구해야함.
-
+		m_fAngle += 90 * g_fDeltaTime;
 	else if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-		m_fAngle += PI * g_fDeltaTime;
+		m_fAngle -= 90 * g_fDeltaTime;
 
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000 )
 	{
@@ -35,13 +36,13 @@ void Player::InputKey()
 
 void Player::UpdateGunPos()
 {
- 	m_GunPos.x = m_tInfo.fX + cosf(m_fAngle) * m_fGunLength;
-	m_GunPos.y = m_tInfo.fY + sinf(m_fAngle) * m_fGunLength;
+	m_GunPos.x = m_tInfo.fX + cosf(m_fAngle * PI / 180) * m_fGunLength;
+	m_GunPos.y = m_tInfo.fY + -sinf(m_fAngle* PI / 180) * m_fGunLength;
 }
 
 void Player::SetShoot()
 {
-	m_Bullets[m_iBulletIndex]->SetPos(m_tInfo.fX, m_tInfo.fY);
+	m_Bullets[m_iBulletIndex]->SetPos(m_GunPos.x, m_GunPos.y);
 	dynamic_cast<Bullet*>(m_Bullets[m_iBulletIndex])->SetShoot(m_fAngle);
 	++m_iBulletIndex;
 	m_iBulletIndex %= 100;

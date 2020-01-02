@@ -25,8 +25,8 @@ void Bullet::Update()
 {
 	if (m_bIsShoot)
 	{
-		m_tInfo.fX += m_fSpeed * cosf(m_fAngle) * g_fDeltaTime;
-		m_tInfo.fY += m_fSpeed * sinf(m_fAngle) * g_fDeltaTime;
+		m_tInfo.fX += m_fSpeed * cosf(m_fAngle * PI / 180) * g_fDeltaTime;
+		m_tInfo.fY -= m_fSpeed * sinf(m_fAngle * PI / 180) * g_fDeltaTime;
 	}
 }
 

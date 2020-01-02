@@ -11,5 +11,6 @@ public:
 private:
 	OBJECT_LIST m_ObjectList[OBJECT_TYPE_END];
 	HDC m_hdc;
+	int m_iCount;
 };
 
