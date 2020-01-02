@@ -35,6 +35,16 @@ void Player::InputKey()
 
 	if (GetAsyncKeyState('A') & 0x8000)
 		dynamic_cast<Shield*>(m_Shield->front())->SetActive();
+
+	if (GetAsyncKeyState('S') & 0x8000)
+	{
+		m_iBulletCount++;
+		if (m_iBulletCount > 100)
+		{
+			SetLockOn();
+			m_iBulletCount = 0;
+		}
+	}
 	UpdateGunPos();
 }
 
@@ -42,14 +52,6 @@ void Player::UpdateGunPos()
 {
 	m_GunPos.x = m_tInfo.fX + cosf(m_fAngle * PI / 180) * m_fGunLength;
 	m_GunPos.y = m_tInfo.fY + -sinf(m_fAngle* PI / 180) * m_fGunLength;
-}
-
-void Player::SetShoot()
-{
-	m_Bullets[m_iBulletIndex]->SetPos(m_GunPos.x, m_GunPos.y);
-	dynamic_cast<Bullet*>(m_Bullets[m_iBulletIndex])->SetShoot(m_fAngle);
-	++m_iBulletIndex;
-	m_iBulletIndex %= 100;
 }
 
 void Player::CheckMapOut()
@@ -65,42 +67,90 @@ void Player::CheckMapOut()
 		m_tInfo.fY = -m_tInfo.fHeight / 2;
 }
 
+int Player::CheckNearMonster()
+{
+	float x, y;
+	float min = 0;
+	float temp = 0;
+	int iCount = 0;
+	int iIndex = 0;
+	for (auto iter = m_Monsters->begin(); iter != m_Monsters->end(); ++iter)
+	{
+		x = (*iter)->GetInfo().fX;
+		y = (*iter)->GetInfo().fY;
+		temp = sqrtf(pow(x - m_GunPos.x, 2) + pow(y - m_GunPos.y, 2));
+		if (temp < min || min == 0)
+		{
+			min = temp;
+			iIndex = iCount;	
+		}
+		++iCount;
+	}
+	return iIndex;
+}
+
+void Player::SetShoot()
+{
+	// std::advance 리스트나 벡터 등 컨테이너를 인덱스로 접근하게 해주는 함수.
+	auto iter = m_Bullets->begin();
+	std::advance(iter, m_iBulletIndex);
+	(*iter)->SetPos(m_GunPos.x, m_GunPos.y);
+	dynamic_cast<Bullet*>(*iter)->SetShoot(m_fAngle);
+	++m_iBulletIndex;
+	m_iBulletIndex %= 100;
+}
+
+void Player::SetLockOn()
+{
+	// std::advance 리스트나 벡터 등 컨테이너를 인덱스로 접근하게 해주는 함수.
+	auto iter = m_Bullets->begin();
+	auto iter2 = m_Monsters->begin();
+	std::advance(iter, m_iBulletIndex);
+	std::advance(iter2, CheckNearMonster());
+	(*iter)->SetPos(m_GunPos.x, m_GunPos.y);
+	dynamic_cast<Bullet*>(*iter)->SetLockOn(*iter2);
+	++m_iBulletIndex;
+	m_iBulletIndex %= 100;
+}
+
+void Player::SetBullets(OBJECT_LIST* bullets)
+{
+	m_Bullets = bullets;
+}
+
 void Player::SetShield(OBJECT_LIST* shield)
 {
 	m_Shield = shield;
 }
 
+void Player::SetMonster(OBJECT_LIST* monsters)
+{
+	m_Monsters = monsters;
+}
+
 void Player::Initialize()
 {
 	// 부모 
-	m_tInfo.fX		= 0;
-	m_tInfo.fY		= 0;
+	m_fSpeed		= 200.0f;
+	m_fAngle		= 0;
 	m_tInfo.fWidth  = PLAYER_X;
 	m_tInfo.fHeight = PLAYER_Y;
 
 	// Player 변수
-	m_fAngle		= 0;
 	m_fGunLength	= 100.0f;
-	m_fSpeed		= 200.0f;
 	m_GunPos.x		= 0;
 	m_GunPos.y		= 0;
 
 	// 총알
 	m_iBulletCount  = 999;			// 첫발사는 딜레이가 없애기 위해서.
 	m_iBulletIndex  = 0;
-	for (int i = 0; i < 100; ++i)
-	{
-		m_Bullets[i] = new Bullet;
-		m_Bullets[i]->Initialize();
-	}
+
 }
 
 void Player::Update()
 {
 	InputKey();
 	CheckMapOut();
-	for (auto iter : m_Bullets)
-		iter->Update();
 }
 
 void Player::Render(HDC hdc)
@@ -114,10 +164,6 @@ void Player::Render(HDC hdc)
 	//RECT rc = { 100, 100, 200, 200 };
 	//DrawText(hdc, szBuf, lstrlen(szBuf), &rc, DT_NOCLIP);
 	
-	// 총알
-	for (auto iter : m_Bullets)
-		iter->Render(hdc);
-
 	// 총구 선
 	MoveToEx(hdc, m_tInfo.fX, m_tInfo.fY, nullptr);
 	LineTo(hdc, m_GunPos.x, m_GunPos.y);
@@ -128,8 +174,6 @@ void Player::Render(HDC hdc)
 
 void Player::Release()
 {
-	for (auto& iter : m_Bullets)
-		delete(iter);
 }
 
 Player::~Player()

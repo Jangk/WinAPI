@@ -10,10 +10,10 @@
 // 여기에 미리 컴파일하려는 헤더 추가
 #include "framework.h"
 #include "Define.h"
-#include "Extern.h"
 #include "Struct.h"
 #include "Enum.h"
 #include "Typedef.h"
+#include "Extern.h"
 #include "FactoryPattern.h"
 
 #endif //PCH_H

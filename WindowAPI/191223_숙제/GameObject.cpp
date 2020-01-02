@@ -15,3 +15,9 @@ void GameObject::SetPos(float x, float y)
 	m_tInfo.fY = y;
 	UpdateRect();
 }
+
+
+const INFO& GameObject::GetInfo()
+{
+	return m_tInfo;
+}

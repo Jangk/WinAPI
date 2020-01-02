@@ -4,6 +4,7 @@ class GameObject
 public: 
 	void UpdateRect();
 	void SetPos(float x, float y);
+	const INFO& GetInfo();
 
 
 public:

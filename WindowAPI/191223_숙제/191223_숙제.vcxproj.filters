@@ -25,6 +25,9 @@
     <Filter Include="01.GameObject\Shield">
       <UniqueIdentifier>{293130be-c6fe-4269-83fd-f788ece9f585}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.GameObject\Monster">
+      <UniqueIdentifier>{97c3568a-f2ab-4844-94f0-965baada8b02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="191223_숙제.h">
@@ -73,6 +76,9 @@
     <ClInclude Include="Shield.h">
       <Filter>01.GameObject\Shield</Filter>
     </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>01.GameObject\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
@@ -95,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="Shield.cpp">
       <Filter>01.GameObject\Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>01.GameObject\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
