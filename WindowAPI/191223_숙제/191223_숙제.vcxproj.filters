@@ -79,6 +79,9 @@
     <ClInclude Include="Monster.h">
       <Filter>01.GameObject\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>97.Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>01.GameObject\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>97.Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

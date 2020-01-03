@@ -176,6 +176,10 @@ void Player::Release()
 {
 }
 
+void Player::IsDead()
+{
+}
+
 Player::~Player()
 {
 	Release();

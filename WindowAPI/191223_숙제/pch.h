@@ -15,5 +15,6 @@
 #include "Typedef.h"
 #include "Extern.h"
 #include "FactoryPattern.h"
+#include "CollisionManager.h"
 
 #endif //PCH_H

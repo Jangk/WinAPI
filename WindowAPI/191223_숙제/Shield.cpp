@@ -53,6 +53,10 @@ void Shield::Release()
 {
 }
 
+void Shield::IsDead()
+{
+}
+
 Shield::~Shield()
 {
 	Release();

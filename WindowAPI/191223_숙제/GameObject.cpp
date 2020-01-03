@@ -16,8 +16,12 @@ void GameObject::SetPos(float x, float y)
 	UpdateRect();
 }
 
-
 const INFO& GameObject::GetInfo()
 {
 	return m_tInfo;
+}
+
+const RECT& GameObject::GetRect()
+{
+	return m_Rect;
 }

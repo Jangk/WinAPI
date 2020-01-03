@@ -20,6 +20,7 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC) override;
 	virtual void Release() override;
+	virtual void IsDead() override;
 	~Player();
 
 private:

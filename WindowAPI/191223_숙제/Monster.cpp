@@ -28,13 +28,13 @@ void Monster::Update()
 		m_fAngle = -acosf(x / sqrtf((x * x) + (y * y)));
 	
 
-	// m_fAngle
+	// 플레이어에게 회전
 	m_GunPos.x = m_tInfo.fX + cosf(m_fAngle) * m_fGunLength;
 	m_GunPos.y = m_tInfo.fY + -sinf(m_fAngle) * m_fGunLength;
 
-	// 유도미사일떄매 잠시 잠금
-	//m_tInfo.fX += cos(m_fAngle) * m_fSpeed * g_fDeltaTime;
-	//m_tInfo.fY -= sin(m_fAngle) * m_fSpeed * g_fDeltaTime;
+	// 플레이어한테 이동
+	m_tInfo.fX += cos(m_fAngle) * m_fSpeed * g_fDeltaTime;
+	m_tInfo.fY -= sin(m_fAngle) * m_fSpeed * g_fDeltaTime;
 }
 
 void Monster::Render(HDC hdc)
@@ -48,5 +48,9 @@ void Monster::Render(HDC hdc)
 }
 
 void Monster::Release()
+{
+}
+
+void Monster::IsDead()
 {
 }

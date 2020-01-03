@@ -58,11 +58,19 @@ void Bullet::Update()
 
 void Bullet::Render(HDC hdc)
 {
-	GameObject::UpdateRect();
 	if (m_bIsShoot)
+	{
+		GameObject::UpdateRect();
 		Ellipse(hdc, m_Rect.left, m_Rect.top, m_Rect.right, m_Rect.bottom);
+	}
 }
 
 void Bullet::Release()
 {
+}
+
+void Bullet::IsDead()
+{
+	m_bIsShoot  = false;
+	m_bIsLockOn = false;
 }

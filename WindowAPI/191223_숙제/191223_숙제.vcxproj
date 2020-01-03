@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="191223_숙제.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Extern.h" />
     <ClInclude Include="framework.h" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClCompile Include="191223_숙제.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Monster.cpp" />
