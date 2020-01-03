@@ -19,13 +19,14 @@ void Monster::Initialize()
 
 void Monster::Update()
 {
+	//		  도착지 - 출발지 = 출발지에서 도착지의 방향
 	float x = m_Target->GetInfo().fX - m_tInfo.fX;
 	float y = m_Target->GetInfo().fY - m_tInfo.fY;	
 
 	if (m_Target->GetInfo().fY < m_tInfo.fY)
-		m_fAngle = acosf(x / sqrtf((x * x) + (y * y)));
+		m_fAngle = acosf(x / sqrtf(pow(x, 2) + pow(y, 2)));
 	else
-		m_fAngle = -acosf(x / sqrtf((x * x) + (y * y)));
+		m_fAngle = -acosf(x / sqrtf(pow(x, 2) + pow(y, 2)));
 	
 
 	// 플레이어에게 회전

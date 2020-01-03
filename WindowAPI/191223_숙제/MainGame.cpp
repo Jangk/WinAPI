@@ -32,9 +32,7 @@ void MainGame::Initialize()
 	for (int i =0 ; i< 3; ++i)
 		m_ObjectList[MONSTER].push_back(GameObjectCreator<Monster>::CreateGameObject(rand()% SCREEN_X, rand()%SCREEN_Y));
 
-	CollisionManager::CollisionRect(m_ObjectList[PLAYER_BULLET], m_ObjectList[MONSTER]);
-	//CollisionManager::CollisionSphere(m_ObjectList[PLAYER_BULLET], m_ObjectList[MONSTER]);
-	//CollisionManager::CollisionSphere(m_ObjectList[MONSTER], m_ObjectList[PLAYER_BULLET]);
+
 }
 
 void MainGame::Update()
@@ -44,16 +42,17 @@ void MainGame::Update()
 		for (auto iter : m_ObjectList[i])
 			iter->Update();
 	}
+	CollisionManager::CollisionSphere(m_ObjectList[MONSTER], m_ObjectList[PLAYER_BULLET]);
 }
 
 void MainGame::Render()
 {
-	//m_iCount++;
-	//if (m_iCount >= 10)
-	//{
-	//	Rectangle(m_hdc, -1, -1, SCREEN_X, SCREEN_Y);
-	//	m_iCount = 0;
-	//}
+	m_iCount++;
+	if (m_iCount >= 10)
+	{
+		Rectangle(m_hdc, -1, -1, SCREEN_X, SCREEN_Y);
+		m_iCount = 0;
+	}
 	for (int i = 0; i < OBJECT_TYPE_END; ++i)
 	{
 		for (auto iter : m_ObjectList[i])
