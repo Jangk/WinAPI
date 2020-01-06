@@ -63,12 +63,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		}
 
 		dwCurTime = GetTickCount();
-
+        
 		if (dwCurTime - dwOldTime >= 10)
 		{
 			mainGame.Update();
 			mainGame.Render();
-
+        
 			dwOldTime = dwCurTime;
 		}		
 	}	

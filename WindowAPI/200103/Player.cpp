@@ -8,6 +8,7 @@ void Player::Initialize()
 	m_tInfo.fHeight = PLAYER_Y;
 
 	m_bIsJump		= false;
+	m_fGravityForce = 500.0f;
 	m_fJumpForce	= 1.0f;
 	m_fJumpAcc		= 0.0f;
 	m_fAccIncrease  = 0.3f;
@@ -15,13 +16,15 @@ void Player::Initialize()
 
 void Player::Update()
 {
+	// y = 힘 * 가속도 * sin(90) - 중력(9.8) * 가속도 ^ 2 * 0.5
+	
+	
 	Input();
-
 	m_tInfo.fX += GameManager::GetInstance()->GetScreenMove();
+
 
 	if (m_bIsJump)
 	{
-		// y = 힘 * 가속도 * sin(90) - 중력(9.8) * 가속도 ^ 2 * 0.5
 		float leftVal  = m_fJumpForce * m_fJumpAcc * 1;
 		float rightVal = 9.8f * pow(m_fJumpAcc, 2) * 0.5;
 		m_tInfo.fY -= leftVal - rightVal;
@@ -29,12 +32,13 @@ void Player::Update()
 
 		if (m_fJumpAcc >= m_fAccIncrease)			// 조건 착지했을때로 바꿀것.(현재 1초에 가속도 증가값만큼)
 		{
-			m_bIsJump = false;
-			m_fJumpAcc = 0;
+			m_fGravityForce = 500;
+			m_fJumpAcc		= 0;
+			m_bIsJump		= false;
 		}
 	}
 	else   // 점프중이 아니면 중력 영향받음.
-		m_tInfo.fY += 500 * g_fDeltaTime;
+		m_tInfo.fY += m_fGravityForce * g_fDeltaTime;
 }
 
 void Player::Render(HDC hdc)

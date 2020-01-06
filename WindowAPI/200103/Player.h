@@ -14,6 +14,7 @@ public:
 
 private:
 	bool m_bIsJump;
+	float m_fGravityForce;
 	float m_fJumpForce;
 	float m_fJumpAcc;		// 가속도
 	float m_fAccIncrease;	// 가속도 증가값
