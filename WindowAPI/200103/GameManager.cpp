@@ -58,7 +58,6 @@ void GameManager::LineToPoint(HDC hdc)
 
 void GameManager::ComparePos()
 {	// 플레이어 위치와 선의 위치 계산
-	int iCount = 0;
 	float cal = 0;
 	float playerX = m_ObjectList[PLAYER].front()->GetInfo().fX;
 	float playerY =	m_ObjectList[PLAYER].front()->GetInfo().fY;
@@ -66,7 +65,7 @@ void GameManager::ComparePos()
 	
 	for (int i = 0; i < m_Point.size()-1; ++i)
 	{
-		if (m_Point.size() == iCount)
+		if (m_Point.size() == 0)
 				break;
 		if (m_Point[i]->x <= playerX && playerX < m_Point[i + 1]->x)
 		{	// 특정 범위 안에 있을시
@@ -80,7 +79,6 @@ void GameManager::ComparePos()
 			if(playerY > cal)
 				m_ObjectList[PLAYER].front()->SetPos(playerX, cal);
 		}
-		++iCount;
 	}
 }
 

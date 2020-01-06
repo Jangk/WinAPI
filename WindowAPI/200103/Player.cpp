@@ -7,27 +7,34 @@ void Player::Initialize()
 	m_tInfo.fWidth  = PLAYER_X;
 	m_tInfo.fHeight = PLAYER_Y;
 
-	m_bIsJump = false;
+	m_bIsJump		= false;
+	m_fJumpForce	= 1.0f;
+	m_fJumpAcc		= 0.0f;
+	m_fAccIncrease  = 0.3f;
 }
 
 void Player::Update()
 {
 	Input();
 
-	// 중력?
-	m_tInfo.fY += 500 * g_fDeltaTime;
 	m_tInfo.fX += GameManager::GetInstance()->GetScreenMove();
 
 	if (m_bIsJump)
 	{
-		//if(m_fCount <= 10)
+		// y = 힘 * 가속도 * sin(90) - 중력(9.8) * 가속도 ^ 2 * 0.5
+		float leftVal  = m_fJumpForce * m_fJumpAcc * 1;
+		float rightVal = 9.8f * pow(m_fJumpAcc, 2) * 0.5;
+		m_tInfo.fY -= leftVal - rightVal;
+		m_fJumpAcc += m_fAccIncrease * g_fDeltaTime;
+
+		if (m_fJumpAcc >= m_fAccIncrease)			// 조건 착지했을때로 바꿀것.(현재 1초에 가속도 증가값만큼)
+		{
 			m_bIsJump = false;
-		//y = v * sinf(90 * PI/180) * t * 9.8 * t ^ 2 * 0.5			// 포물선 공식
-		//++m_fCount;
-		m_tInfo.fY = 10 * 1 * 1 * 9.8 * 1 * 0.5 * g_fDeltaTime;
+			m_fJumpAcc = 0;
+		}
 	}
-	else
-		m_fCount = 0;
+	else   // 점프중이 아니면 중력 영향받음.
+		m_tInfo.fY += 500 * g_fDeltaTime;
 }
 
 void Player::Render(HDC hdc)
